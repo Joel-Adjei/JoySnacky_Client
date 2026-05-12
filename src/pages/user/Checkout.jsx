@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useCartStore from "@/store/cartstore";
 import { useAuthStore } from "@/store/authStore";
+import useOrderStore from "@/store/useOrderStore";
 import usePageTitle from "@/hooks/usePageTitle";
 import Button from "@/components/ui/custom/Button";
 import {
@@ -98,6 +99,7 @@ const Checkout = () => {
   const navigate = useNavigate();
   const { cartItems, clearCart } = useCartStore();
   const { name: authName, email: authEmail, phoneNumber: authPhone } = useAuthStore();
+  const { addOrder } = useOrderStore();
 
   const [step, setStep] = useState(1); // 1: Delivery  2: Payment  3: Confirm
   const [payMethod, setPayMethod] = useState("cash");
@@ -158,6 +160,29 @@ const Checkout = () => {
   };
 
   const handlePlaceOrder = () => {
+    addOrder({
+      id: `ORD-${Date.now()}`,
+      orderedAt: new Date().toISOString(),
+      items: cartItems,
+      delivery: {
+        fullName: form.fullName,
+        email: form.email,
+        phone: form.phone,
+        address: form.address,
+        landmark: form.landmark,
+        notes: form.notes,
+      },
+      payment: {
+        method: payMethod,
+        network: form.momoNetwork || null,
+        number: form.momoNumber || null,
+      },
+      subtotal,
+      shipping,
+      tax,
+      total,
+      status: "pending",
+    });
     clearCart();
     setPlaced(true);
   };
@@ -196,6 +221,9 @@ const Checkout = () => {
             </div>
           </div>
           <div className="flex flex-col gap-3">
+            <Button variant="secondary" className="w-full justify-center" onClick={() => navigate("/orders")}>
+              Track My Order
+            </Button>
             <Button variant="primary" className="w-full justify-center" onClick={() => navigate("/")}>
               Back to Home
             </Button>
