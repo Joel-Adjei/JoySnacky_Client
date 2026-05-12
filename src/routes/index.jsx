@@ -19,6 +19,8 @@ import Products from "@/pages/user/Products";
 import ProductDetails from "@/pages/user/ProductDetails";
 import Cart from "@/pages/user/Cart";
 import Checkout from "@/pages/user/Checkout";
+import UserOrders from "@/pages/user/UserOrders";
+import OrderDetail from "@/pages/user/OrderDetail";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 
@@ -31,6 +33,8 @@ const Router = () => {
           <Route path="/search" element={<Search />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/orders" element={<UserOrders />} />
+          <Route path="/orders/:id" element={<OrderDetail />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/about" element={<About />} />
