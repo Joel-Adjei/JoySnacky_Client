@@ -31,7 +31,6 @@ const UserProfileMenu = () => {
 
   return (
     <div className="w-64 font-Montserrat">
-      {/* Profile header */}
       <DropdownMenuItem className="p-0 focus:bg-transparent cursor-default">
         <div className="w-full px-4 py-4">
           <div className="flex items-center gap-3">
