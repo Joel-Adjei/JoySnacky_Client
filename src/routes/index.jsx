@@ -12,7 +12,7 @@ import AdminLayout from "@/layout/AdminLayout";
 import AdminVendors from "@/pages/admin/AdminVendors";
 import Notes from "@/components/vendor/Notes";
 import VendorOrders from "@/pages/vendor/VendorOrders";
-import VendorChat from "@/pages/vendor/VendorChat";
+import VendorSettings from "@/pages/vendor/VendorSettings";
 import VerifyOtp from "@/pages/auth/VerifyOtp";
 import Search from "@/pages/user/Search";
 import Products from "@/pages/user/Products";
@@ -40,8 +40,8 @@ const Router = () => {
         <Route path="vendor" element={<VendorLayout />}>
           <Route index element={<VendorHome />} />
           <Route path="products" element={<VendorProduct />} />
-          <Route path="chat" element={<VendorChat />} />
           <Route path="orders" element={<VendorOrders />} />
+          <Route path="settings" element={<VendorSettings />} />
         </Route>
 
         <Route path="admin" element={<AdminLayout />}>

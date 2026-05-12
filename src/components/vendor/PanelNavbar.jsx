@@ -26,6 +26,7 @@ const vendorNavItems = [
   { name: "Dashboard", href: "/vendor/", icon: Home },
   { name: "Orders", href: "/vendor/orders", icon: ShoppingBag },
   { name: "Items", href: "/vendor/products", icon: ShoppingBasket },
+  { name: "Settings", href: "/vendor/settings", icon: Settings },
 ];
 
 const adminNavItems = [
