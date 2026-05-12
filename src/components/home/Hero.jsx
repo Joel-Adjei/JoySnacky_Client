@@ -19,12 +19,143 @@ const Hero = () => {
         <CarouselItem>
           <HeroSection2 />
         </CarouselItem>
+        <CarouselItem>
+          <HeroSection3 />
+        </CarouselItem>
       </CusCarousel>
     </section>
   );
 };
 
 export default Hero;
+
+const HeroSection3 = () => {
+  const navigate = useNavigate();
+  return (
+    <div className="relative h-[80vh] w-full flex flex-col items-center justify-center bg-[#0a0a0a] px-6 overflow-hidden md:flex-row md:px-20">
+      {/* Decorative Objects */}
+      <img
+        src={objects.onion}
+        className="absolute top-20 right-20 size-32 opacity-20 blur-sm rotate-12 pointer-events-none"
+        alt=""
+      />
+      <img
+        src={objects.tomatoe}
+        className="absolute bottom-40 left-10 size-24 opacity-20 blur-[2px] -rotate-12 pointer-events-none"
+        alt=""
+      />
+      <img
+        src={objects.lettuce}
+        className="absolute top-10 left-1/4 size-40 opacity-10 blur-md pointer-events-none"
+        alt=""
+      />
+
+      {/* Background Glows */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange-900/10 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-amber-900/5 blur-[100px] rounded-full pointer-events-none" />
+
+      {/* Text Content */}
+      <div className="relative z-10 w-full md:w-[55%] flex flex-col items-center md:items-start space-y-8">
+        <BlurFade direction="left" duration={0.6}>
+          <div className="space-y-2">
+            <span className="text-orange-500 font-Montserrat font-bold tracking-[0.3em] text-xs md:text-sm uppercase block mb-2">
+              Premium Quality
+            </span>
+            <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl text-[#f5e6d3] leading-[1.1] text-center md:text-left drop-shadow-2xl">
+              Savor the <span className="text-orange-500 italic">Ultimate</span>{" "}
+              <br />
+              Campus{" "}
+              <span className="relative">
+                Delight
+                <svg
+                  className="absolute -bottom-2 left-0 w-full h-2 text-orange-500/30"
+                  viewBox="0 0 100 10"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M0 5 Q 25 0, 50 5 T 100 5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                </svg>
+              </span>
+            </h1>
+          </div>
+        </BlurFade>
+
+        <BlurFade direction="left" duration={0.6} delay={0.2}>
+          <p className="font-Montserrat text-gray-400 text-sm md:text-lg max-w-lg text-center md:text-left leading-relaxed font-light">
+            Indulge in our signature{" "}
+            <span className="text-white font-medium">Gourmet Meat Pie</span>.
+            Handcrafted with premium ingredients and delivered fresh to your
+            doorstep.
+          </p>
+        </BlurFade>
+
+        <BlurFade direction="up" duration={0.6} delay={0.4}>
+          <div className="flex flex-col sm:flex-row items-center gap-6">
+            <button
+              onClick={() => navigate("/products")}
+              className="group relative px-10 py-5 bg-gradient-to-br from-orange-500 to-orange-700 text-white rounded-xl font-bold text-lg overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_20px_40px_rgba(249,115,22,0.3)] hover:shadow-[0_25px_50px_rgba(249,115,22,0.4)]"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                Order Now{" "}
+                <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
+              </span>
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            </button>
+
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-3">
+                {[1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className="size-10 rounded-full border-2 border-[#0a0a0a] bg-orange-950 flex items-center justify-center text-[10px] text-white font-bold"
+                  >
+                    {String.fromCharCode(64 + i)}
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-gray-500 font-Montserrat">
+                <span className="text-[#f5e6d3] font-bold block">1,200+</span>
+                Happy Students
+              </p>
+            </div>
+          </div>
+        </BlurFade>
+      </div>
+
+      {/* Image Content */}
+      <div className="relative z-10 w-full md:w-[45%] flex justify-center items-center mt-12 md:mt-0">
+        <BlurFade direction="right" duration={0.8} delay={0.3}>
+          <div className="relative group">
+            {/* Ambient Shadow */}
+            <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-[90%] h-20 bg-orange-900/20 blur-[60px] rounded-full" />
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[70%] h-8 bg-black/80 blur-xl rounded-full transition-transform duration-500 group-hover:scale-x-110" />
+
+            {/* Main Product Image */}
+            <img
+              src={images.meatPie}
+              alt="Gourmet Meat Pie"
+              className="w-72 md:w-96 lg:w-[450px] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)] transition-transform duration-700 hover:scale-105 hover:-rotate-2 cursor-pointer"
+            />
+
+            {/* Badge */}
+            <div className="absolute -top-4 -right-4 size-24 bg-orange-600 rounded-full flex flex-col items-center justify-center text-white border-4 border-[#0a0a0a] rotate-12 shadow-xl animate-pulse">
+              <span className="text-[10px] font-bold uppercase leading-none">
+                Freshly
+              </span>
+              <span className="text-xl font-black leading-none italic">
+                BAKED
+              </span>
+            </div>
+          </div>
+        </BlurFade>
+      </div>
+    </div>
+  );
+};
 
 const HeroSection1 = () => {
   const navigate = useNavigate();
